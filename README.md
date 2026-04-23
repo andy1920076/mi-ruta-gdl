@@ -1,5 +1,8 @@
 # Mi Ruta GDL
 
+## 📸 Preview
+![Preview](preview.png)
+
 Landing page desarrollada como proyecto académico enfocada en la presentación visual de un servicio de transporte en Guadalajara. El proyecto destaca por su enfoque en diseño UI/UX, animaciones y organización profesional del código frontend.
 
 ## 🧠 Objetivo
