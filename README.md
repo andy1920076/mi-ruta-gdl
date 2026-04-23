@@ -6,6 +6,10 @@
 ## 📸 Preview
 ![Preview](preview.png)
 
+## 📱 Responsive Design
+
+Diseño totalmente responsive adaptado a dispositivos móviles, tablets y pantallas de escritorio, manteniendo una experiencia consistente en diferentes resoluciones.
+
 Landing page desarrollada como proyecto académico enfocada en la presentación visual de un servicio de transporte en Guadalajara. El proyecto destaca por su enfoque en diseño UI/UX, animaciones y organización profesional del código frontend.
 
 ## 🧠 Objetivo
