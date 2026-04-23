@@ -1,0 +1,45 @@
+// ====================
+// 🎯 FUENTES
+// ====================
+$fuentePrincipal: 'Poppins', sans-serif;
+$fuenteSecundaria: 'Roboto', sans-serif;
+// NUEVAS FUENTES
+$fuenteDisplay: 'Orbitron', sans-serif;     // estilo tech (títulos)
+$fuenteElegante: 'Inter', sans-serif;       // limpia moderna
+
+
+// ====================
+// 📱 MEDIA QUERIES
+// ====================
+$telefono: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktopXL: 1400px;
+$ultraHD: 1920px;     // monitores grandes
+$tv4k: 3840px;       // pantallas 50”
+
+
+// ====================
+// 🎨 COLORES (MI RUTA GDL)
+// ====================
+$negro: #0b0f1a;          // fondo principal oscuro
+$negroSuave: #121829;     // secciones
+$azulPrincipal: #1e88e5;  // azul branding
+$azulClaro: #42a5f5;      // gradientes
+$azulGlow: #2962ff;       // detalles tech
+$blanco: #ffffff;
+
+$grisOscuro: #1f2937;
+$gris: #374151;
+$grisClaro: #e5e7eb;
+
+
+// ====================
+// 🔥 SEMÁNTICOS
+// ====================
+$background: $negro;
+$backgroundSecundario: $negroSuave;
+$texto: $grisClaro;
+$card: $grisOscuro;
+$borde: $gris;
+$cta: $azulPrincipal;

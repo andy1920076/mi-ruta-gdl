@@ -1,0 +1,183 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.funciona {
+    padding: 12rem 0;
+    text-align: center;
+    position: relative;
+
+    // 🔥 IMAGEN LIMPIA (SIN MATARLA)
+    background: url('../img/UNE-B.png');
+    background-size: cover;
+    background-position: center;
+}
+
+// 🔥 OVERLAY BIEN HECHO (SEPARA CONTENIDO)
+.funciona::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(5, 10, 20, 0.75),
+        rgba(5, 10, 20, 0.85)
+    );
+    z-index: 0;
+}
+
+// 🔥 CONTENIDO ENCIMA DEL OVERLAY
+.funciona .contenedor {
+    position: relative;
+    z-index: 1;
+}
+
+
+// ====================
+// TITULOS
+// ====================
+.funciona__heading {
+    font-family: v.$fuenteDisplay;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+
+    span {
+        color: v.$azulPrincipal;
+    }
+}
+
+.funciona__subtexto {
+    max-width: 700px;
+    margin: 0 auto 6rem;
+    color: rgba(255,255,255,0.85);
+    font-family: v.$fuenteElegante;
+}
+
+
+// ====================
+// GRID
+// ====================
+.funciona__grid {
+    display: grid;
+    gap: 6rem;
+    justify-items: center;
+
+    @include m.tablet {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.funciona__pasos {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+
+
+// ====================
+// CARDS (FIX CLAVE)
+// ====================
+.paso {
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+
+    // 🔥 MÁS SOLIDAS (ANTES MUY TRANSPARENTES)
+    background: rgba(10, 20, 40, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: all 0.4s ease;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.02);
+        border: 1px solid rgba(41,98,255,0.5);
+        box-shadow: 0 0 30px rgba(41,98,255,0.2);
+    }
+
+    &__icono {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__numero {
+        font-size: 5rem;
+        font-family: v.$fuenteDisplay;
+        color: rgba(41,98,255,0.12);
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin: 1rem 0;
+        color: #ffffff;
+    }
+
+    p {
+        color: rgba(255,255,255,0.85);
+        line-height: 1.6;
+    }
+}
+
+
+// ====================
+// TARJETA VISUAL
+// ====================
+.funciona__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+        width: 100%;
+        max-width: 420px;
+        transition: all 0.6s ease;
+
+        filter: drop-shadow(0 20px 60px rgba(0,0,0,0.8));
+
+        &:hover {
+            animation: wobble 1s ease;
+            transform: scale(1.07);
+            filter: 
+                drop-shadow(0 40px 100px rgba(0,0,0,1))
+                drop-shadow(0 0 40px rgba(41,98,255,0.7));
+        }
+    }
+
+    // 🔥 GLOW MÁS SUAVE (ANTES COMPETÍA MUCHO)
+    &::before {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+            circle, 
+            rgba(41,98,255,0.2), 
+            transparent 70%
+        );
+        filter: blur(80px);
+        z-index: -1;
+    }
+}
+
+
+// ====================
+// ANIMACIÓN
+// ====================
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(6deg); }
+    30% { transform: rotate(-6deg); }
+    45% { transform: rotate(4deg); }
+    60% { transform: rotate(-4deg); }
+    75% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}

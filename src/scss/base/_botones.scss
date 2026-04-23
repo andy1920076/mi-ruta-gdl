@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+// BASE
+.boton {
+    @include m.boton(v.$cta, v.$blanco);
+}
+
+
+// PRIMARIO
+.boton--primario {
+    @include m.boton(v.$azulPrincipal, v.$blanco);
+}
+
+
+// SECUNDARIO
+.boton--secundario {
+    @include m.boton(v.$blanco, v.$negro);
+}
+
+
+// OSCURO
+.boton--oscuro {
+    @include m.boton(v.$negroSuave, v.$blanco);
+}
+
+
+// DETALLE TECH
+.boton--azul {
+    @include m.boton(v.$azulGlow, v.$blanco);
+}
+
+
+// TAMAÑOS
+.boton--sm {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+}
+
+.boton--lg {
+    padding: 2rem 4rem;
+    font-size: 1.8rem;
+}

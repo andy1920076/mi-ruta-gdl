@@ -1,0 +1,78 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+html {
+    font-size: clamp(56.25%, 0.6vw, 75%);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: v.$background;
+    color: v.$texto;
+    font-family: v.$fuenteSecundaria;
+    font-size: 1.6rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+// 🔥 CONTENEDOR PRO
+.contenedor {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+
+    @include m.ultraHD {
+        width: min(90%, 1500px);
+    }
+
+    @include m.tv4k {
+        width: min(90%, 1800px);
+    }
+}
+
+// 🔥 TIPOGRAFÍA FLUIDA
+h1 {
+    font-size: clamp(3rem, 4vw, 6rem);
+}
+
+h2 {
+    font-size: clamp(2.4rem, 3vw, 4.5rem);
+}
+
+p {
+    font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// 🔥 FIX SCROLL HEADER
+section {
+    scroll-margin-top: 90px;
+
+    @include m.desktop {
+        scroll-margin-top: 110px;
+    }
+}
+
+// 🔥 ESPACIADO RESPONSIVE
+.seccion {
+    padding: clamp(6rem, 8vw, 14rem) 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}

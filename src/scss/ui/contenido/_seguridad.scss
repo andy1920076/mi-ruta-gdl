@@ -1,0 +1,138 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.seguridad {
+    padding: 16rem 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    background: linear-gradient(
+        rgba(5,10,20,0.85),
+        rgba(5,10,20,0.7)
+    ),
+    url('../img/RUTA-1.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    &__heading {
+        font-family: v.$fuenteDisplay;
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+
+        span {
+            color: v.$azulPrincipal;
+        }
+    }
+
+    &__intro {
+        max-width: 800px;
+        margin: 0 auto 8rem;
+        font-size: 1.8rem;
+        line-height: 1.8;
+        color: v.$grisClaro;
+        font-family: v.$fuenteElegante;
+    }
+
+    &__contenido {
+        display: grid;
+        gap: 6rem;
+        justify-items: center;
+
+        @include m.tablet {
+            grid-template-columns: 1fr;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @include m.desktop {
+            grid-template-columns: 350px 1fr;
+            align-items: center;
+            max-width: 1000px;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    // ====================
+    // 🔥 CAMBIO AQUÍ
+    // ====================
+    &__tab {
+        padding: 2rem;
+        font-size: 1.6rem;
+        border-radius: 1.2rem;
+
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        font-family: v.$fuenteSecundaria;
+
+        // 🔥 TEXTO SIEMPRE VISIBLE
+        color: v.$blanco;
+
+        // 🔥 UPPERCASE
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+            background: rgba(41,98,255,0.25);
+        }
+
+        &.active {
+            background: rgba(41,98,255,0.5);
+            border: 1px solid rgba(41,98,255,0.7);
+            color: v.$blanco;
+        }
+    }
+
+    &__panel {
+        position: relative;
+        min-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        @include m.desktop {
+            text-align: left;
+        }
+    }
+
+    &__item {
+        position: absolute;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease;
+
+        max-width: 600px;
+
+        h3 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-family: v.$fuentePrincipal;
+        }
+
+        p {
+            font-size: 1.7rem;
+            line-height: 1.8;
+            color: v.$grisClaro;
+            font-family: v.$fuenteElegante;
+        }
+
+        &.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+    }
+}
+

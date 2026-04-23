@@ -1,0 +1,111 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+
+    padding: 8rem 0 2rem;
+    text-align: center;
+
+    background: linear-gradient(
+        rgba(5,10,20,0.95),
+        rgba(5,10,20,1)
+    );
+
+    &__grid {
+        display: grid;
+        gap: 4rem;
+        justify-items: center;
+
+        @include m.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.desktop {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__brand,
+    &__links,
+    &__info,
+    &__extra {
+        text-align: center;
+    }
+
+    &__links a {
+        display: block;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        color: v.$grisClaro;
+
+        &:hover {
+            color: v.$azulPrincipal;
+        }
+    }
+
+    &__logo {
+        width: 120px;
+        margin: 0 auto;
+        transition: all 0.4s ease;
+
+        &:hover {
+            transform: scale(1.1) rotate(3deg);
+            filter: 
+                drop-shadow(0 0 25px rgba(41,98,255,0.8))
+                drop-shadow(0 0 50px rgba(41,98,255,0.5));
+        }
+    }
+
+    h3 {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+
+        span {
+            color: v.$azulPrincipal;
+        }
+    }
+
+    h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.4rem;
+        color: v.$grisClaro;
+        max-width: 300px;
+    }
+
+    &__bottom {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &__extra ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 🔥 separación real
+    }
+
+    &__extra li {
+        font-size: 1.4rem;
+        color: v.$grisClaro;
+    }  
+    
+    &__grid > div {
+        max-width: 280px; // evita que se vean muy abiertos
+    }
+}

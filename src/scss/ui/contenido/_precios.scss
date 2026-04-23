@@ -1,0 +1,182 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.precios {
+    padding: 12rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        rgba(5,10,20,0.95),
+        rgba(5,10,20,0.75)
+    ),
+    url('../img/RUTA-3.jpg');
+
+    background-size: cover;
+    background-position: center;
+    
+    .plan {
+
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        &__precio {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        ul li {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    &__heading {
+        font-size: 4rem;
+
+        span {
+            color: v.$azulPrincipal;
+        }
+    }
+
+    &__subtexto {
+        max-width: 650px;
+        margin: 2rem auto 5rem;
+        color: v.$grisClaro;
+        line-height: 1.6;
+    }
+
+    // ====================
+    // SLIDER
+    // ====================
+    &__slider {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__track {
+        display: flex;
+        transition: transform 0.6s ease;
+    }
+
+    // ====================
+    // FLECHAS (PEGADAS)
+    // ====================
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.08);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 1rem;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba(41,98,255,0.5);
+        }
+
+        &--left {
+            left: 10px;
+        }
+
+        &--right {
+            right: 10px;
+        }
+    }
+
+    // DOTS
+    &__dots {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+
+            &.active {
+                background: v.$azulPrincipal;
+            }
+        }
+    }
+}
+
+
+// ====================
+// PLAN (SIN ZOOM FEO)
+// ====================
+.plan {
+    min-width: 100%;
+    padding: 4rem 3rem;
+
+    background: rgba(10,20,40,0.85);
+    border-radius: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // 🔥 HOVER PRO (SIN SCALE BRUSCO)
+    &:hover {
+        box-shadow: 0 0 40px rgba(41,98,255,0.3);
+        background: rgba(20,40,80,0.9);
+    }
+
+    h3 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__precio {
+        font-size: 3rem;
+        color: v.$azulPrincipal;
+        margin-bottom: 2rem;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        li {
+            color: v.$grisClaro;
+        }
+    }
+}
+
+
+// ====================
+// DESTACADO
+// ====================
+.plan--destacado {
+    border: 1px solid rgba(41,98,255,0.6);
+}
+
+
+// ====================
+// ANIMACIÓN FONDO
+// ====================
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

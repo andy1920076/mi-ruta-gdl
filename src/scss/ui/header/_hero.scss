@@ -1,0 +1,146 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 5rem;
+
+    background: linear-gradient(
+        rgba(5,10,20,0.85),
+        rgba(5,10,20,0.7)
+    ),
+    url('../img/RUTA-4.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    &__p{
+        text-transform: uppercase;
+    }
+
+    &__grid {
+        display: grid;
+        gap: 4rem;
+
+        @include m.tablet {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+    }
+
+    // 🔥 CENTRADO TOTAL
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__heading {
+        font-size: 3.8rem;
+        margin-bottom: 2rem;
+
+        @include m.desktop {
+            font-size: 4.8rem;
+        }
+
+        @include m.tv4k {
+            font-size: 6.5rem;
+        }
+    }
+
+    &__texto {
+        font-size: 1.7rem;
+        color: v.$grisClaro;
+        margin-bottom: 3rem;
+
+        span {
+            color: v.$azulPrincipal;
+            font-weight: 600;
+        }
+
+        strong {
+            color: v.$blanco;
+            font-size: 2rem;
+        }
+    }
+
+    // 🔥 CENTRADO REAL DE CARDS
+    &__datos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    &__dato {
+        width: 140px;
+        height: 110px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        background: rgba(255,255,255,0.05);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(41,98,255,0.4);
+            box-shadow: 0 0 20px rgba(41,98,255,0.2);
+        }
+
+        span {
+            font-size: 2rem;
+            font-weight: 700;
+            color: v.$azulPrincipal;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: v.$grisClaro;
+        }
+    }
+
+    &__imagen {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 1.5rem;
+            transition: transform 0.5s ease, filter 0.5s ease;
+
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+
+            &:hover {
+                transform: translateY(-10px) scale(1.03);
+                filter: 
+                    drop-shadow(0 30px 60px rgba(0,0,0,0.8))
+                    drop-shadow(0 0 25px rgba(41,98,255,0.6));
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(41,98,255,0.4), transparent 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+    }
+}
